@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+<nav>
+    <div class="titulo">
+        <h2>Bienvenido @Context.Session.GetString("Nombre")</h2>
+    </div>
+    <div class="boton logout">
+        <a asp-controller="Home" asp-action="ProcesaLogout">
+            <button class="btn btn-danger rounded-pill">Log out</button>
+        </a>
+    </div>
+</nav>
+<div class="contenido">
+    <div class="num">
+        <h2>@Context.Session.GetInt32("num")</h2>
+    </div>
+    <div class="opciones">
+        <div class="fila">
+            <div class="caja">
+                <form asp-controller="Home" asp-action="DashboardAccion" asp-route-id_accion="A">
+                    <button class="accion btn-warning">+1</button>
+                </form>
+            </div>
+            <div class="caja">
+                <form  asp-controller="Home" asp-action="DashboardAccion" asp-route-id_accion="B">
+                    <button class="accion btn-primary">-1</button>
+                </form>
+            </div>
+        </div>
+        <div class="fila">
+            <div class="caja">
+                <form  asp-controller="Home" asp-action="DashboardAccion" asp-route-id_accion="C">
+                    <button class="accion btn-danger">x2</button>
+                </form>
+            </div>
+            <div class="caja">
+                <form  asp-controller="Home" asp-action="DashboardAccion" asp-route-id_accion="D">
+                    <button class="accion btn-success">+Random</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
